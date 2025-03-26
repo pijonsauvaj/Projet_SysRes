@@ -19,6 +19,9 @@ int main(int argc, char**argv) {
     address_sock.sin6_family=AF_INET6;
     address_sock.sin6_port=htons(42460);
     
+    int optval = 1;  // Les deux lignes servent à debugger l'erreur "Address already in use"
+	 setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+	
     int r=bind(sock,(struct sockaddr *)&address_sock,sizeof(struct sockaddr_in6));
     if(r<0){
         perror("bind"); close(sock);exit(1);
