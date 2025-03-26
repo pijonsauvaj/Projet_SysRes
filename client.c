@@ -8,26 +8,11 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
-int main(int argc, char* argv[]) {
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int main(int argc, char *argv[]) {
+	 if (argc!=2){
+        printf("Syntaxe: %s fichier\n", argv[0]);
+        exit(1);
+    }
 
     int descr=socket(PF_INET6,SOCK_STREAM,0);
     if(descr<0){
